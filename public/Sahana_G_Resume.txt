@@ -1,0 +1,3 @@
+Sahana G Resume Placeholder
+
+Replace this file with your final resume PDF and keep the same filename if you want the hero button to download it directly.

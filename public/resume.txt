@@ -1,0 +1,3 @@
+Sahana Resume Placeholder
+
+Replace this file with your actual resume PDF and update the Hero resume link if needed.
