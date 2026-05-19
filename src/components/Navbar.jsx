@@ -38,15 +38,6 @@ function Navbar({ sections, activeSection, theme, onToggleTheme, name }) {
 
           <button
             type="button"
-            className="theme-toggle d-none d-lg-inline-flex"
-            aria-label="Toggle theme"
-            onClick={onToggleTheme}
-          >
-            {theme === "dark" ? <FaSun /> : <FaMoon />}
-          </button>
-
-          <button
-            type="button"
             className="menu-toggle d-lg-none"
             aria-label="Toggle navigation menu"
             onClick={() => setIsOpen((current) => !current)}

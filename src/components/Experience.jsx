@@ -21,7 +21,7 @@ function Experience({ items }) {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.55 }}
             >
-              <span className="timeline-year">{item.year}</span>
+              
               <h3>{item.title}</h3>
               <h4>{item.subtitle}</h4>
               <p>{item.description}</p>

@@ -46,10 +46,10 @@ function Hero() {
                   View Projects
                   <FaArrowRight />
                 </a>
-                <a href={personalInfo.resumePath} download className="btn btn-outline-brand">
+                {/* <a href={personalInfo.resumePath} download className="btn btn-outline-brand">
                   <FaDownload />
                   Download Resume
-                </a>
+                </a> */}
               </div>
 
               <div className="hero-socials">

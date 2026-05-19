@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="portfolio-footer">
       <div className="container footer-content">
-        <p>Copyright 2026 {personalInfo.name}. Crafted with React, Bootstrap, and Framer Motion.</p>
+        <p>Copyright 2026 {personalInfo.name}.</p>
         <div className="footer-socials">
           <a href={personalInfo.githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub">
             <FaGithub />
