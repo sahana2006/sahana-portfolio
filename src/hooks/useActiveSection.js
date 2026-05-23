@@ -1,40 +1,65 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+
+const NAV_OFFSET = 120;
+
+function getSectionFromHash(sectionIds) {
+  const hash = window.location.hash.replace("#", "");
+  return sectionIds.includes(hash) ? hash : null;
+}
+
+function getSectionFromScroll(sectionIds) {
+  const scrollPosition = window.scrollY + NAV_OFFSET;
+  let current = sectionIds[0];
+
+  sectionIds.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section && section.offsetTop <= scrollPosition) {
+      current = sectionId;
+    }
+  });
+
+  return current;
+}
 
 function useActiveSection(sectionIds) {
-  const [activeSection, setActiveSection] = useState(sectionIds[0] ?? "home");
+  const [activeSection, setActiveSection] = useState(
+    () => getSectionFromHash(sectionIds) ?? sectionIds[0] ?? "home",
+  );
 
   useEffect(() => {
-    const observers = [];
+    const updateActiveSection = () => {
+      setActiveSection(getSectionFromScroll(sectionIds));
+    };
 
-    sectionIds.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-
-      if (!element) {
-        return;
+    const handleHashChange = () => {
+      const hashSection = getSectionFromHash(sectionIds);
+      if (hashSection) {
+        setActiveSection(hashSection);
       }
+    };
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(sectionId);
-          }
-        },
-        {
-          rootMargin: "-45% 0px -45% 0px",
-          threshold: 0.1,
-        },
-      );
-
-      observer.observe(element);
-      observers.push(observer);
-    });
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      observers.forEach((observer) => observer.disconnect());
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, [sectionIds]);
 
-  return activeSection;
+  const navigateToSection = useCallback(
+    (sectionId) => {
+      if (sectionIds.includes(sectionId)) {
+        setActiveSection(sectionId);
+      }
+    },
+    [sectionIds],
+  );
+
+  return [activeSection, navigateToSection];
 }
 
 export default useActiveSection;

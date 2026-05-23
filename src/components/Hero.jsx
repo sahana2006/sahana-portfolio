@@ -1,16 +1,10 @@
 import { motion } from "framer-motion";
-import { FaArrowRight, FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
-import { personalInfo } from "../data/portfolioData";
+import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
+import { heroMetrics, heroRoles, personalInfo } from "../data/portfolioData";
 import useTypingEffect from "../hooks/useTypingEffect";
 
-const roles = [
-  "I build AI-powered applications",
-  "I design full-stack systems",
-  "I love solving real-world problems",
-];
-
 function Hero() {
-  const typedRole = useTypingEffect(roles);
+  const typedRole = useTypingEffect(heroRoles);
 
   return (
     <section id="home" className="hero-section section-spacing">
@@ -27,7 +21,7 @@ function Hero() {
               </span>
               <h1 className="hero-title">
                 Hi, I&apos;m {personalInfo.name}
-                <span className="hero-gradient"> building intelligent products with code.</span>
+                <span className="hero-gradient"> {personalInfo.heroTagline}</span>
               </h1>
               <p className="hero-subtitle">
                 <span className="hero-static-role">{personalInfo.heroSubtitle}</span>
@@ -36,20 +30,13 @@ function Hero() {
                 <span className="typed-role">{typedRole}</span>
                 <span className="typing-caret">|</span>
               </p>
-              <p className="hero-description">
-                Full Stack Developer and AI/ML enthusiast focused on impactful applications,
-                modern interfaces, and full-stack systems that bring real-world ideas to life.
-              </p>
+              <p className="hero-description">{personalInfo.heroDescription}</p>
 
               <div className="hero-actions">
                 <a href="#projects" className="btn btn-brand">
                   View Projects
                   <FaArrowRight />
                 </a>
-                {/* <a href={personalInfo.resumePath} download className="btn btn-outline-brand">
-                  <FaDownload />
-                  Download Resume
-                </a> */}
               </div>
 
               <div className="hero-socials">
@@ -75,22 +62,12 @@ function Hero() {
                 {personalInfo.role}
               </div>
               <div className="hero-metric-grid">
-                <div>
-                  <strong>{personalInfo.cgpa}</strong>
-                  <span>CGPA</span>
-                </div>
-                <div>
-                  <strong>IIIT</strong>
-                  <span>Sri City</span>
-                </div>
-                <div>
-                  <strong>RAG</strong>
-                  <span>System building</span>
-                </div>
-                <div>
-                  <strong>DSA</strong>
-                  <span>Strong foundation</span>
-                </div>
+                {heroMetrics.map((metric) => (
+                  <div key={metric.label}>
+                    <strong>{metric.value}</strong>
+                    <span>{metric.label}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>

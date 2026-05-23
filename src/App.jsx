@@ -15,7 +15,6 @@ import {
   skills,
 } from "./data/portfolioData";
 import useActiveSection from "./hooks/useActiveSection";
-import useTheme from "./hooks/useTheme";
 
 const sections = [
   { id: "home", label: "Home" },
@@ -25,10 +24,11 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
+const sectionIds = sections.map((section) => section.id);
+
 function App() {
-  const [theme, toggleTheme] = useTheme();
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const activeSection = useActiveSection(sections.map((section) => section.id));
+  const [activeSection, navigateToSection] = useActiveSection(sectionIds);
 
   const filteredProjects = useMemo(() => {
     if (selectedCategory === "All") {
@@ -39,7 +39,7 @@ function App() {
   }, [selectedCategory]);
 
   return (
-    <div className="app-shell" data-theme={theme}>
+    <div className="app-shell">
       <div className="page-glow page-glow-one" />
       <div className="page-glow page-glow-two" />
       <div className="particle-field" aria-hidden="true">
@@ -53,9 +53,8 @@ function App() {
       <Navbar
         activeSection={activeSection}
         sections={sections}
-        theme={theme}
-        onToggleTheme={toggleTheme}
         name={personalInfo.shortName}
+        onNavigate={navigateToSection}
       />
       <main>
         <Hero />

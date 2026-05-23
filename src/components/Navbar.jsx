@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaBars, FaMoon, FaSun, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-function Navbar({ sections, activeSection, theme, onToggleTheme, name }) {
+function Navbar({ sections, activeSection, name, onNavigate }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,7 +32,11 @@ function Navbar({ sections, activeSection, theme, onToggleTheme, name }) {
     >
       <div className="container">
         <div className="nav-content">
-          <a className="brand-mark" href="#home">
+          <a
+            className={`brand-mark ${activeSection === "home" ? "active" : ""}`}
+            href="#home"
+            onClick={() => onNavigate("home")}
+          >
             {name}.dev
           </a>
 
@@ -51,21 +55,16 @@ function Navbar({ sections, activeSection, theme, onToggleTheme, name }) {
                 key={section.id}
                 className={activeSection === section.id ? "active" : ""}
                 href={`#${section.id}`}
-                onClick={handleNavClick}
+                aria-current={activeSection === section.id ? "page" : undefined}
+                onClick={() => {
+                  onNavigate(section.id);
+                  handleNavClick();
+                }}
               >
                 <span className="nav-link-dot" />
                 {section.label}
               </a>
             ))}
-
-            <button
-              type="button"
-              className="theme-toggle d-lg-none"
-              aria-label="Toggle theme"
-              onClick={onToggleTheme}
-            >
-              {theme === "dark" ? <FaSun /> : <FaMoon />}
-            </button>
           </div>
         </div>
       </div>

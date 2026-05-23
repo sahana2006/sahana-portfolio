@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { personalInfo } from "../data/portfolioData";
+import { focusAreas, personalInfo } from "../data/portfolioData";
 import SectionHeading from "./SectionHeading";
 
 function About() {
@@ -7,9 +7,9 @@ function About() {
     <section id="about" className="section-spacing">
       <div className="container">
         <SectionHeading
-          eyebrow="About Me"
-          title="Strong academics, applied AI curiosity, and a builder&apos;s full-stack mindset"
-          description="I aim to build software that is useful, technically sharp, and polished enough to feel ready for real users."
+          eyebrow="About"
+          title="My Profile"
+          description="B.Tech CSE student focused on full-stack development and applied AI."
         />
 
         <div className="row g-4 align-items-stretch">
@@ -22,14 +22,12 @@ function About() {
               transition={{ duration: 0.6 }}
             >
               <p>
-                I&apos;m {personalInfo.name}, a B.Tech CSE student at IIIT Sri City with a CGPA of{" "}
-                {personalInfo.cgpa}. I&apos;m deeply interested in full-stack development and AI/ML,
-                and I enjoy building products that feel both intelligent and practical.
+                I&apos;m {personalInfo.name}, a B.Tech CSE student at IIIT Sri City (CGPA {personalInfo.cgpa})
+                specializing in full-stack development and applied machine learning.
               </p>
               <p>
-                I work across React, Django, machine learning pipelines, and RAG-based systems.
-                What excites me most is creating impactful applications where clean frontend
-                experiences meet solid backend design and meaningful AI capabilities.
+                My work spans React frontends, Django REST backends, and AI features such as classification
+                models, automated evaluation pipelines, and RAG-based assistants.
               </p>
             </motion.div>
           </div>
@@ -44,12 +42,9 @@ function About() {
             >
               <h3>Focus Areas</h3>
               <div className="interest-tags">
-                <span>React Development</span>
-                <span>Django APIs</span>
-                <span>Machine Learning</span>
-                <span>RAG Systems</span>
-                <span>Impactful Products</span>
-                <span>Problem Solving</span>
+                {focusAreas.map((area) => (
+                  <span key={area}>{area}</span>
+                ))}
               </div>
             </motion.div>
           </div>

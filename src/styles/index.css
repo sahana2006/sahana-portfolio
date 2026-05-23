@@ -16,24 +16,6 @@
   --gradient-strong: linear-gradient(135deg, var(--brand), var(--accent));
 }
 
-[data-theme="light"] {
-  color-scheme: light;
-  --bg-primary: #edf2ff;
-  --bg-secondary: rgba(255, 255, 255, 0.78);
-  --surface: rgba(255, 255, 255, 0.74);
-  --surface-strong: rgba(255, 255, 255, 0.92);
-  --border-color: rgba(47, 63, 120, 0.12);
-  --text-primary: #16203f;
-  --text-secondary: #5d6889;
-  --brand: #4169e1;
-  --brand-strong: #2d59de;
-  --accent: #7a4dff;
-  --accent-strong: #6438f2;
-  --shadow: 0 24px 70px rgba(122, 132, 189, 0.2);
-  --gradient: linear-gradient(135deg, rgba(65, 105, 225, 0.12), rgba(122, 77, 255, 0.12));
-  --gradient-strong: linear-gradient(135deg, var(--brand), var(--accent));
-}
-
 * {
   box-sizing: border-box;
 }
@@ -192,22 +174,26 @@ main,
 
 .section-eyebrow {
   display: inline-block;
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--brand);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.85rem;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.12;
+  font-size: clamp(2.15rem, 4.5vw, 3.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   margin-bottom: 1rem;
 }
 
 .section-description {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
   margin-bottom: 0;
 }
 
@@ -235,10 +221,6 @@ main,
   border-bottom: 1px solid var(--border-color);
 }
 
-[data-theme="light"] .portfolio-navbar.scrolled {
-  background: rgba(237, 242, 255, 0.8);
-}
-
 .nav-content {
   display: flex;
   align-items: center;
@@ -255,8 +237,7 @@ main,
   color: var(--text-primary);
 }
 
-.menu-toggle,
-.theme-toggle {
+.menu-toggle {
   width: 2.85rem;
   height: 2.85rem;
   display: inline-flex;
@@ -269,8 +250,7 @@ main,
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.menu-toggle:hover,
-.theme-toggle:hover {
+.menu-toggle:hover {
   transform: translateY(-2px);
   border-color: rgba(167, 108, 255, 0.35);
 }
@@ -308,6 +288,7 @@ main,
 .nav-links a.active,
 .nav-links a:hover {
   color: var(--text-primary);
+  font-weight: 600;
   transform: translateX(2px);
 }
 
@@ -326,7 +307,7 @@ main,
 }
 
 .hero-section {
-  padding-top: 8.5rem;
+  padding-top: 7.5rem;
 }
 
 .hero-badge,
@@ -344,37 +325,39 @@ main,
 }
 
 .hero-title {
-  font-size: clamp(2.9rem, 8vw, 5.4rem);
-  line-height: 0.98;
-  margin: 1.25rem 0 1rem;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1rem 0 0.75rem;
 }
 
 .hero-gradient,
 .section-title {
   background: var(--gradient-strong);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  min-height: 1.6rem;
-  font-size: 1.05rem;
-  margin-bottom: 0.35rem;
+  min-height: 1.4rem;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .hero-static-role {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .hero-typing-line {
-  min-height: 2rem;
+  min-height: 1.6rem;
   color: var(--brand);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .typed-role {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .typing-caret {
@@ -390,9 +373,9 @@ main,
 }
 
 .hero-description {
-  max-width: 40rem;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text-secondary);
 }
 
@@ -517,7 +500,8 @@ main,
 
 .hero-metric-grid strong {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .hero-metric-grid span,
@@ -552,8 +536,18 @@ main,
 .timeline-item h3,
 .contact-panel h3 {
   margin-bottom: 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
   position: relative;
   z-index: 1;
+}
+
+.about-panel p {
+  font-size: 1.1rem;
+  line-height: 1.75;
 }
 
 .about-panel p,
@@ -586,6 +580,10 @@ main,
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
+}
+
+.about-panel .interest-tags span {
+  font-size: 0.95rem;
 }
 
 .skill-card,
@@ -773,6 +771,8 @@ main,
 
   .nav-links a.active {
     background: var(--gradient);
+    border: 1px solid rgba(167, 108, 255, 0.25);
+    color: var(--text-primary);
   }
 
   .timeline {

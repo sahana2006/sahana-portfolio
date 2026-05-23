@@ -1,10 +1,13 @@
 export const personalInfo = {
   name: "Sahana G",
   shortName: "Sahana",
-  role: "Full Stack Developer | AI/ML Enthusiast",
-  heroSubtitle: "Full Stack Developer | AI/ML Engineer",
+  role: "3rd Year CSE Student",
+  heroSubtitle: "Aspiring Full-Stack Developer · AI/ML Enthusiast",
+  heroTagline: "— exploring full-stack development and applied AI.",
+  heroDescription:
+    "Third-year B.Tech CSE student at IIIT Sri City. I build full-stack and AI-powered projects with React, Django, and machine learning—focused on learning, experimentation, and solid fundamentals.",
   location: "India",
-  education: "B.Tech CSE at IIIT Sri City",
+  education: "UG-3 · B.Tech CSE · IIIT Sri City",
   cgpa: "9.97",
   achievementsCgpa: "9.97",
   email: "sahana.g24@iiits.in",
@@ -14,6 +17,28 @@ export const personalInfo = {
   linkedinUrl: "https://linkedin.com/in/sahanag2006",
   resumePath: "/Sahana_G_Resume.txt",
 };
+
+export const heroRoles = [
+  "Building full-stack apps with React and Django",
+  "Exploring machine learning and RAG systems",
+  "Strengthening fundamentals through DSA practice",
+];
+
+export const heroMetrics = [
+  { value: "9.97", label: "CGPA" },
+  { value: "IIIT", label: "Sri City" },
+  { value: "RAG", label: "System building" },
+  { value: "DSA", label: "Strong foundation" },
+];
+
+export const focusAreas = [
+  "Full-Stack Web Development",
+  "REST API & Backend Design",
+  "Machine Learning & Deep Learning",
+  "RAG & LLM Integration",
+  "System Design",
+  "Data Structures & Algorithms",
+];
 
 export const socialLinks = [
   {
@@ -137,13 +162,13 @@ export const experienceItems = [
     title: "DSA Foundation",
     subtitle: "Problem Solving & Core CS",
     description:
-      "Solved 200+ Data Structures and Algorithms problems on LeetCode, covering arrays, strings, linked lists, stacks, queues, trees and graphs. Focused on optimizing solutions using time and space complexity analysis while strengthening problem-solving and edge-case handling skills.",
+      "Solved 200+ Data Structures and Algorithms problems on LeetCode across arrays, strings, linked lists, stacks, queues, trees, and graphs, with a focus on time and space optimization, edge-case handling and efficient algorithm design.",
   },
   {
     year: "2025",
     title: "School Achievements",
     subtitle: "Class 10 & 12 Performance",
     description:
-      "Consistently strong academic performance in Class X and Class XII, reflecting discipline, curiosity and long-term commitment to learning. Secured 97.8% in Class X (ICSE, 2022) and 96.8% in Class XII (CBSE, 2024) from Christ Academy, Bangalore.",
+      "Consistently strong academic performance in Class X and XII, reflecting discipline, curiosity and long-term commitment to learning. Secured 97.8% in Class X (ICSE, 2022) and 96.8% in Class XII (CBSE, 2024) from Christ Academy, Bangalore.",
   },
 ];

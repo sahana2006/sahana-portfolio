@@ -9,8 +9,8 @@ function Contact() {
       <div className="container">
         <SectionHeading
           eyebrow="Contact"
-          title="Let&apos;s connect around full-stack and AI ideas"
-          description="I&apos;m open to internships, collaborations, and opportunities where thoughtful engineering can make a difference."
+          title="Get in touch"
+          description="Open to internships, collaborations, and project discussions."
         />
 
         <motion.div

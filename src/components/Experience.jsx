@@ -7,8 +7,8 @@ function Experience({ items }) {
       <div className="container">
         <SectionHeading
           eyebrow="Achievements"
-          title="Academic consistency backed by strong problem-solving fundamentals"
-          description="A few highlights that reflect discipline, curiosity, and the foundation behind my development work."
+          title="Highlights"
+          description="Academic milestones and problem-solving progress."
         />
 
         <div className="timeline">

@@ -16,8 +16,8 @@ function Skills({ skills }) {
       <div className="container">
         <SectionHeading
           eyebrow="Skills"
-          title="Technologies I use to design, build, and improve modern applications"
-          description="A balanced stack across frontend, backend, programming fundamentals, and applied AI/ML."
+          title="Tech stack"
+          description="Frontend, backend, programming, and AI/ML tools I work with."
         />
 
         <div className="row g-4">

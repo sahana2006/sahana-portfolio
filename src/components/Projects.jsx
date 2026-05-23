@@ -12,8 +12,8 @@ function Projects({ categories, filteredProjects, selectedCategory, onSelectCate
       <div className="container">
         <SectionHeading
           eyebrow="Projects"
-          title="Projects that combine AI, backend logic, and user-focused product thinking"
-          description="A selection of work centered on practical intelligence, strong architecture, and polished implementation."
+          title="Featured work"
+          description="Full-stack and AI projects from coursework and personal builds."
         />
 
         <div className="project-filters">
